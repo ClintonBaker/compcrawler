@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<div class='ui container'>
+    <div class='ui message main'>
+        <h1 style='text-align: center;' class='ui header'>Your PCs</h1>
+    </div>
+    <div class='ui three column doubling stackable grid' style='display:flex; flex-wrap:wrap;'>
+        <% posts.forEach(function(post){ %>
+        <div class='column'>
+            <a href='/posts/<%= post._id %>'>
+                <img style='max-width:300px; max-height:300px;' class='ui medium image segment' src='<%= post.imageUrl %>'>
+            </a>
+        </div>
+        <% }); %>
+        <div class='column'>
+            <div style='max-width:300px; max-height:300px;' class='ui medium image segment' >
+                <i style='font-size: 120px; display: block; width: auto; margin-top: 30%;' class='fire icon'></i>
+                <a href='/posts/new' style='margin-left:33%;' class='ui positive button'>Upload</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

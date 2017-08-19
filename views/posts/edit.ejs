@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+<script src='/scripts/edit.js'></script>
+
+<div class='ui centered grid'>
+  <div class='ten wide tablet four wide computer column'>
+    <div class='ui segment'>
+      <div>
+        <canvas id='canvas'>
+          <img id='post' angle='<%= post.imageAngle %>' src='<%= post.imageUrl %>'>
+        </canvas>  
+        <div style='margin: 5px; margin-top: 15px;'>
+          <div class='ui centered grid'>  
+            <div class='ui buttons'>
+              <button id='left' class="ui green button" tabindex="0">
+                <i style='margin: 0' class='undo big icon'></i>
+              </button>
+              <form action='/posts/<%= post._id %>/edit/' method='POST'>
+                <button id='save' class='ui red button'>Save</button>
+              </form> 
+              <button id='right' class='ui green button'>
+                <i style='margin: 0' class='repeat big icon'></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>

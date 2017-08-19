@@ -1,0 +1,57 @@
+<% include ./partials/header %>
+
+<script src='/scripts/display.js'></script>
+
+<div class='ui centered grid'>
+  <div class='ten wide tablet four wide computer column'>
+    <div class='ui segment'>
+      <div>
+        <canvas id='canvas'>
+          <img id='post' angle='<%= post.imageAngle %>' src='<%= post.imageUrl %>'>
+        </canvas>
+      </div>
+        <form action='/crawl/<%= post._id %>/upvote' method='POST'>
+          <div style='margin-top: 5px' class="ui labeled button" tabindex="0">
+            <button class="mini ui green button">
+              <i class="thumbs up icon"></i> Likes
+            </button>
+            <a class="ui basic green left pointing label">
+              <%= post.likes; %>
+            </a>
+          </div>
+        </form>
+        <div id='name-box' class='ui segment'>
+            <% if(post.suggNames.length === 0){ %>
+                No names to display yet.
+            <% } else {%>
+                <% post.suggNames.forEach( function(suggName, index, array){ %>
+                  <div>
+                    <%= suggName.username %>: <%= suggName.suggName %>
+                    <form style='display: inline;' action='/creep/<%= post._id %>/upvote/<%= suggName._id %>' method='POST'>
+                      <span style='float: right;'><button style='background: none; padding: 0px; border: none;'><i class="thumbs up icon"></i><%= suggName.likes %></button></span>
+                    </form>
+                  </div>
+                  <% if(!(index === array.length-1)){ %>
+                    <hr class='bar'>
+                  <% } %>
+                <% }); %>
+            <% } %>
+        </div>
+        <div class='ui'>
+          <% if(currentUser){ %>
+          <form action='/crawl/<%= post._id %>' method='POST'>
+            <div class='ui mini input'>
+              <input id='suggName' type='text' name='name' placeholder='What should I name it?' required>
+            </div>
+            <button class='ui mini black button' >Submit</button>
+          </form>
+          <% } %>
+        </div>
+    </div>
+      <div style='margin-top: 4%' class='ui centered grid'>
+        <a href='/crawl/randomize'class='ui positive button'>Crawl</a>
+      </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

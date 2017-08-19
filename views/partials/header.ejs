@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comp Crawl</title>
+        <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css'>
+        <link rel='stylesheet' type='text/css' href='/stylesheets/main.css'>
+        <meta name=viewport content='width=400'>
+    </head>
+    <body>
+        <div id='nav' class="ui fixed inverted menu">
+            <div class='ui container'>
+              <a href='/' class='item'>
+                Home
+              </a>
+              <a href='/crawl' class="item">
+                Crawl
+              </a>
+              <a href='/posts' class="item">
+                Your PCs
+              </a>
+              <div class="right menu">
+                <% if(!currentUser){ %>
+                <a href='/login' class="ui item">
+                  Login
+                </a>
+                <a href='/register' class="ui item">
+                  Signup
+                </a>
+                <% } else { %>
+                <a href='/logout' class="ui item">
+                  Logout
+                </a>
+                <% } %>
+              </div>
+          </div>
+        </div>
+
+        <div class='container'>
+          <% if(error && error.length > 0){ %>
+          <div class='ui error message'>
+            <div class='ui center aligned alert alert-danger header' role='alert'>
+                <%= error %>
+            </div>
+          </div>
+          <% } %>
+          <% if(success && success.length > 0){ %>
+          <div class="ui success message">
+            <div class='ui center aligned alert alert-success header' role='alert'>
+                <%= success %>
+            </div>
+          <% } %>
+        </div>

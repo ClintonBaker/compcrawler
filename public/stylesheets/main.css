@@ -1,0 +1,88 @@
+body{
+    background: #999;
+    margin-top: 45px;
+}
+
+img{
+  max-width: 100%
+}
+
+input, textarea {
+  max-width:100%
+}
+
+.column{
+    margin: 0;
+    padding: 0;
+}
+
+.bar{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 100, 0, .25), rgba(0, 100, 0, 1), rgba(0, 100, 0, .25));
+}
+
+#name-box{
+    background: #AAA;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    color: green;
+    font-weight: 700;
+}
+
+#save{
+    height: 100%;
+}
+
+#suggName{
+    border-color: #252525;
+}
+
+.ui.inverted.menu{
+    background: #252525;
+}
+
+.ui.inverted.menu .item{
+    color: green;
+    font-weight: 900;
+    font-size: 1.1em;
+}
+
+.ui.message.main{
+    background: #C5BEB0
+}
+
+div.ui.alert.alert-danger.header{
+    font-size: 1.2em;
+}
+
+
+form.ui.large.form{
+    margin-top: 200px;
+}
+
+div.ten.wide.tablet.four.computer.column:nth-child(1){
+    margin-top: 50px;
+}
+
+div.ui.inverted.vertical.masthead.center.aligned.segment.container{
+    border-radius:10px; 
+    background: #252525; 
+    margin-top: 300px; 
+    height: 250px;
+}
+
+button.ui.green.button{
+    padding: .85em;
+}
+
+@media screen and (max-width: 800px) {
+    div.ui.inverted.vertical.masthead.center.aligned.segment.container{
+        margin-top: 180px;
+    }
+    
+    form.ui.large.form{
+        margin-top: 120px;
+    }
+}

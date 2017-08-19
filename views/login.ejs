@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+<div class='ui centered grid'>
+    <div class='ten wide tablet four wide computer column'>
+        <form class='ui large form' action='/login' method='POST'>
+            <div class='ui stacked segment'>
+                <div class='ui centered grid'>
+                    <div style='border:none; box-shadow:none' class='ui segment'>
+                        <h1 style='color: green;'>Log In!</h1>
+                    </div>
+                </div>
+                <div class='field'>
+                    <div class='ui left icon input'>
+                        <i class='user icon'></i>
+                        <input type='text' name='username' placeholder='User Name'>
+                    </div>
+                </div>
+                <div class='field'>
+                    <div class='ui left icon input'>
+                        <i class='lock icon'></i>
+                        <input type='password' name='password' placeholder='Password'>
+                    </div>
+                </div>
+                <input class='ui fluid large green button' type='submit' value='Login!'>
+            </div>
+        </form>
+    </div>
+</div>
+<% include ./partials/footer %>

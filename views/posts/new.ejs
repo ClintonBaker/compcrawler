@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+<div class='ui centered grid'>
+    <div class='ten wide tablet four wide computer column'>
+        <form enctype='multipart/form-data' class='ui large form' action='/posts/new' method='POST'>
+            <div class='ui stacked segment'>
+                <h1 style='color: green;'>New Post</h1>
+                <div class='field'>
+                    <input type='file' name='upl'>
+                </div>
+                <input class='ui fluid large green button' type='submit' value='Submit!'>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

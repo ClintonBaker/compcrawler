@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+<script src='/scripts/display.js'></script>
+
+<div class='ui centered grid'>
+  <div class='ten wide tablet four wide computer column'>
+    <div class='ui segment'>
+        <a href='/posts/<%= post._id %>/edit'>
+          <div>
+            <canvas id='canvas'>
+              <img id='post' angle='<%= post.imageAngle %>' src='<%= post.imageUrl %>'>
+            </canvas>
+          </div>
+        </a>  
+          <div style='height: 27px; margin-top: 2px; margin-bottom: 6px;' class='ten wide tablet four wide computer column'>
+            <div class="ui left floated labeled button" tabindex="0">
+              <button class="mini ui green button">
+                Likes
+              </button>
+              <a class="ui basic green left pointing label">
+                <%= post.likes; %>
+              </a>
+            </div>
+            <form id='delete-form' action='/posts/<%= post._id %>?_method=DELETE' method='POST'>
+                <input type='submit' class='ui right floated tiny red button' value='Delete'>
+            </form>
+          </div>
+        <div id='name-box' class='ui segment'>
+            Names:
+            <hr class='bar'>
+            <% if(post.suggNames.length === 0){ %>
+                No names to display yet.
+            <% } else {%>
+                <% post.suggNames.forEach( function(suggName){ %>
+                  <div>
+                    <%= suggName.username %>: <%= suggName.suggName %>
+                  </div>
+                <% }); %>
+            <% } %>
+            
+        </div>
+      </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
